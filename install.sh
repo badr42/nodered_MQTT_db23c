@@ -34,7 +34,7 @@ echo "**Installing NODERED**"
 
 
 
-dnf install npm
+sudo dnf install -y npm
 sudo npm install -g --unsafe-perm node-red
 
 echo "**adding firewall rules**"
@@ -53,5 +53,15 @@ chmod 666 /opt/oracle/product/23c/dbhomeFree/network/admin/tnsnames.ora
 
 
 
+echo " create the service "
 
 
+sudo mv nodered.service /etc/systemd/system/
+sudo systemctl daemon-reload
+
+
+sudo npm install -g pm2
+pm2 start /usr/bin/node-red -- -v
+
+
+pm2 startup systemd

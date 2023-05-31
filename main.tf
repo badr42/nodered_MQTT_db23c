@@ -51,7 +51,7 @@ resource "oci_core_instance" "instance" {
   provisioner "remote-exec" {
     inline = [
       "export TP=${var.DB_PASS}",
-      "wget -qO - 'https://raw.githubusercontent.com/badr42/Oracle_db23cfree/main/install.sh' | bash -s ${var.DB_PASS}",
+      "wget -qO - 'https://github.com/badr42/nodered_MQTT_db23c/main/install.sh' | bash -s ${var.DB_PASS}",
     ]
   }
 }
