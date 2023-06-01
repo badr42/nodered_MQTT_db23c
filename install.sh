@@ -1,6 +1,8 @@
 #!/bin/bash
 export DB_PASSWORD=$1
 
+echo "***DB Password=*** $DB_PASSWORD"
+
 echo "***Installing Dependencies***" 
 
 # sudo -s
@@ -53,15 +55,13 @@ chmod 666 /opt/oracle/product/23c/dbhomeFree/network/admin/tnsnames.ora
 
 
 
-echo " create the service "
-
-
-sudo mv nodered.service /etc/systemd/system/
-sudo systemctl daemon-reload
-
+echo "*** create the service ***"
 
 sudo npm install -g pm2
-pm2 start /usr/bin/node-red -- -v
+
+sleep 5 
+
+pm2 start /usr/local/bin/node-red -- -v
 
 
 pm2 startup systemd
