@@ -76,3 +76,7 @@ lsnrctl status
 
 1. Please reset the passwords 
 2. I built it to be wide open you'll need to add security and ssl certificates for both node-red as well the mosquitto servers
+
+
+## Trouble Shooting
+1. If the script fails, try to SSH to the machine and run database.sh then install.sh 

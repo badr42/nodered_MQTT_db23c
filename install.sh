@@ -29,10 +29,7 @@ echo "*** installing instant client**"
 
 sudo npm install -g -y oracledb
 
-echo "*** installing nodered flow **"
 
-wget https://raw.githubusercontent.com/badr42/nodered_MQTT_db23c/main/import_nodered.sh
-bash -s import_nodered.sh
 
 
 
@@ -50,10 +47,18 @@ pm2 start /usr/local/bin/node-red -- -v
 pm2 startup systemd
 
 
+
+echo "*** installing nodered flow **"
+wget https://raw.githubusercontent.com/badr42/nodered_MQTT_db23c/main/import_nodered.sh
+bash import_nodered.sh
+
+
+
+
 echo "*** installing MQTT ***" 
 wget https://raw.githubusercontent.com/badr42/nodered_MQTT_db23c/main/installMosquitto.sh
 sudo chmod 777 installMosquitto.sh
-sudo bash -s installMosquitto.sh
+sudo bash installMosquitto.sh
 
 echo "*** Starting the Service ***" 
 sudo systemctl start mosquitto
