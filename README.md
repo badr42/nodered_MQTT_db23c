@@ -48,6 +48,10 @@ terraform plan
 terraform apply
 ```
 
+## Post Config settings
+1. Log into node-red by directing your browser to instance-public-ip:1880
+2. Update the oracle db node server and add in the user name and password of the nodered user created during the provisioning process 
+
 
 
 ## Connect to the DB
