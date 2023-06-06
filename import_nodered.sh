@@ -4,9 +4,9 @@
 NODE_RED_API="http://localhost:1880/flows"
 
 
-wget 
+wget https://raw.githubusercontent.com/badr42/nodered_MQTT_db23c/main/nodered.json
 # Define the path to the flow JSON file
-FLOW_FILE="path/to/flow.json"
+FLOW_FILE="nodered.json"
 
 # Read the flow JSON file content
 FLOW_CONTENT=$(cat "$FLOW_FILE")
