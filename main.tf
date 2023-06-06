@@ -52,7 +52,7 @@ resource "oci_core_instance" "instance" {
     inline = [
       "export TP=${var.DB_PASS}",
       "wget -qO - 'https://raw.githubusercontent.com/badr42/nodered_MQTT_db23c/main/database.sh' | sudo bash -s ${var.DB_PASS}",
-      "wget -qO - 'https://raw.githubusercontent.com/badr42/nodered_MQTT_db23c/main/install.sh' | sudo bash -s ${var.DB_PASS}",
+      "wget -qO - 'https://raw.githubusercontent.com/badr42/nodered_MQTT_db23c/main/install.sh' | sudo bash -s",
 
     ]
   }
@@ -131,6 +131,9 @@ resource "oci_core_virtual_network" "dbfree_vcn" {
 
 output "instance_public_ip" {
   value = <<EOF
+
+  to connect to node-red server 
+  http://${oci_core_instance.instance.public_ip}:1880
   
   to connect to the database 
 
