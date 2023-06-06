@@ -28,11 +28,11 @@ export DB_PASSWORD=Tiger$tr0ng2023
 (echo "${DB_PASSWORD}"; echo "${DB_PASSWORD}";) | sudo /etc/init.d/oracle-free-23c configure
 
 echo "**** set up environment ****"
-# echo "export ORACLE_SID=FREE" >>/home/opc/.bashrc
-# echo "export ORAENV_ASK=NO" >> /home/opc/.bashrc
+echo "export ORACLE_SID=FREE" >>/home/opc/.bashrc
+echo "export ORAENV_ASK=NO" >> /home/opc/.bashrc
 # echo "export ORACLE_HOME=/home/oracle" >> /home/opc/.bashrc
 # echo "export ORACLE_BASE=/home/oracle" >> /home/opc/.bashrc
-# echo ". /opt/oracle/product/23c/dbhomeFree/bin/oraenv" >> /home/opc/.bashrc
+echo ". /opt/oracle/product/23c/dbhomeFree/bin/oraenv" >> /home/opc/.bashrc
 
 
 

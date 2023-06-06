@@ -1,5 +1,8 @@
 #!/bin/bash
 
+
+source ~/.bashrc 
+
 #Install nodered
 echo "**Installing NODERED**"
 sudo yum remove nodejs -y
