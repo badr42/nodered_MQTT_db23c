@@ -1,14 +1,20 @@
 # Oracle Database 23C Free installation guide
 
-Terraform script that helps you provision Nodered and Mosquitto server on OCI
+Terraform script that helps you provision Nodered and Mosquitto server on OCI integrated into a Oracle Database 23c free edition
 
 **NodeRed** 
 
 Node-RED is an open-source, flow-based programming tool that enables users to create IoT applications and workflows visually. It is built on top of Node.js and provides a web-based flow editor that makes it easy to connect devices, APIs, and services. Node-RED comes with a rich set of pre-built nodes that make it easy to connect to different devices and services, including MQTT, HTTP, and WebSocket.
 
+Oracle 23c free edition is a freely available oracle database that you can use for free readmore [here](https://www.oracle.com/database/free/)
 
 
-## Requirements
+## Logical Diagram 
+![Logical Diagram](img/logical.png)
+
+## Architecture Diagram 
+![Architecture Diagram](img/deployment.png)
+_*Note this is the optimum deployment diagram, however in this repo I'm provisioning everything on a single machine_
 
 ## Configuration
 
@@ -60,3 +66,9 @@ cd $ORACLE_HOME/bin
 lsnrctl status
 ./sqlplus / as sysdba
 ```
+
+
+## IMPORTANT 
+
+1. Please reset the passwords 
+2. I built it to be wide open you'll need to add security and ssl certificates for both node-red as well the mosquitto servers
