@@ -43,8 +43,8 @@ sleep 15
 
 #start nodered
 
-pm2 start /usr/local/bin/node-red -- -v
-pm2 startup systemd
+npx pm2 start /usr/local/bin/node-red -- -v
+npx pm2 startup systemd
 
 
 
