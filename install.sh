@@ -28,9 +28,11 @@ export DB_PASSWORD=Tiger$tr0ng2023
 (echo "${DB_PASSWORD}"; echo "${DB_PASSWORD}";) | sudo /etc/init.d/oracle-free-23c configure
 
 echo "**** set up environment ****"
-echo "export ORACLE_SID=FREE" >> ~/.bashrc
-echo "export ORAENV_ASK=NO" >> ~/.bashrc
-echo ". /opt/oracle/product/23c/dbhomeFree/bin/oraenv" >> ~/.bashrc
+# echo "export ORACLE_SID=FREE" >>/home/opc/.bashrc
+# echo "export ORAENV_ASK=NO" >> /home/opc/.bashrc
+# echo "export ORACLE_HOME=/home/oracle" >> /home/opc/.bashrc
+# echo "export ORACLE_BASE=/home/oracle" >> /home/opc/.bashrc
+# echo ". /opt/oracle/product/23c/dbhomeFree/bin/oraenv" >> /home/opc/.bashrc
 
 
 echo "***DB INSTALLED***" 
@@ -46,14 +48,17 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
 source ~/.bashrc
 nvm install node
 
-# sudo dnf install -y npm
+sudo dnf install -y npm
 sudo npm install -g --unsafe-perm node-red
 
 
 echo "**adding firewall rules**"
 
 sudo firewall-cmd --zone=public --add-port=1880/tcp --permanent
+sudo firewall-cmd --zone=public --add-port=1883/tcp --permanent
+
 sudo firewall-cmd --reload
+
 
 
 echo "**Adding mods to NodeRed**"
@@ -67,7 +72,7 @@ chmod 666 /opt/oracle/product/23c/dbhomeFree/network/admin/tnsnames.ora
 
 echo "*** installing instant client**"
 
-npm install oracledb
+npm install -g -y oracledb
 
 
 
@@ -106,5 +111,16 @@ wget https://raw.githubusercontent.com/badr42/nodered_MQTT_db23c/main/createuser
 
 #start nodered
 
-# pm2 start /usr/local/bin/node-red -- -v
-# pm2 startup systemd
+pm2 start /usr/local/bin/node-red -- -v
+pm2 startup systemd
+
+
+echo "*** installing MQTT ***" 
+
+sudo yum -y install epel-release
+sudo yum -y install mosquitto
+sudo systemctl start mosquitto
+sudo systemctl enable mosquitto
+#sudo cp /opt/oracle/product/23c/dbhomeFree/lib/libclntsh.so /opt/oracle/product/23c/dbhomeFree/instantclient/
+
+#https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-the-mosquitto-mqtt-messaging-broker-on-centos-7
