@@ -17,9 +17,8 @@ Node-RED is an open-source, flow-based programming tool that enables users to cr
 ```
 git clone https://github.com/badr42/Oracle_db23cfree
 cd Oracle_db23cfree
-export TF_VAR_tenancy_ocid='<tenancy-ocid>'
 export TF_VAR_compartment_ocid='<comparment-ocid>'
-export TF_VAR_region='<home-region>'
+#export TF_VAR_region='<home-region>'
 export TF_VAR_DB_PASS=<password>
 
 
