@@ -46,7 +46,7 @@ pm2 startup systemd
 
 
 echo "*** installing MQTT ***" 
-wget https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/installMosquitto.sh
+wget https://raw.githubusercontent.com/badr42/nodered_MQTT_db23c/main/installMosquitto.sh
 sudo chmod 777 installMosquitto.sh
 sudo bash -s installMosquitto.sh
 
@@ -57,7 +57,3 @@ sudo systemctl enable mosquitto
 
 echo "*************** INSTALLATION COMPLETE ***************"
 
-
-#sudo cp /opt/oracle/product/23c/dbhomeFree/lib/libclntsh.so /opt/oracle/product/23c/dbhomeFree/instantclient/
-
-#https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-the-mosquitto-mqtt-messaging-broker-on-centos-7
