@@ -13,7 +13,7 @@
 //#include "RawImage.h" //Including image processing library
 
 #define WIFISSID "BMT_4G"          // Put your WifiSSID here
-#define PASSWORD "badrbadrfarah" // Put your wifi password here
+#define PASSWORD "WIFIPASS" // Put your wifi password here
 
 // #define WIFISSID "BMT-hotspot"                             // Put your WifiSSID here
 // #define PASSWORD "simple4u"                    // Put your wifi password here
