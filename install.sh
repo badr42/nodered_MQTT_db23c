@@ -29,6 +29,11 @@ echo "*** installing instant client**"
 
 sudo npm install -g -y oracledb
 
+echo "*** installing nodered flow **"
+
+wget https://raw.githubusercontent.com/badr42/nodered_MQTT_db23c/main/import_nodered.sh
+bash -s import_nodered.sh
+
 
 
 echo "*** create the service ***"
