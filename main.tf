@@ -50,16 +50,16 @@ resource "oci_core_instance" "instance" {
 
   provisioner "remote-exec" {
     inline = [
-      "export TP=${var.DB_PASS}",
       "wget -qO - 'https://raw.githubusercontent.com/badr42/nodered_MQTT_db23c/main/database.sh' | sudo bash -s ${var.DB_PASS}",
-      "wget -qO - 'https://raw.githubusercontent.com/badr42/nodered_MQTT_db23c/main/install.sh' | bash ",
+      "wget -qO - 'https://raw.githubusercontent.com/badr42/nodered_MQTT_db23c/main/config_db.sh' | bash ",
+      "wget -qO - 'https://raw.githubusercontent.com/badr42/nodered_MQTT_db23c/main/install.sh' | bash ",  
     ]
   }
 }
 
 # Create datasource for availability domains
 data "oci_identity_availability_domains" "ADs" {
-  compartment_id = var.compartment_ocid
+  compartment_id = var.compartment_ocid 
 }
 
 # Create internet gateway
