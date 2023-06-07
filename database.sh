@@ -1,4 +1,4 @@
-
+#!/bin/bash
 export DB_PASSWORD=$1
 
 echo "***DB Password=*** $DB_PASSWORD"
