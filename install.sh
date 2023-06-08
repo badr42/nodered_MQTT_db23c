@@ -50,9 +50,9 @@ sleep 15
 
 #start nodered
 
-pm2 start /usr/local/bin/node-red -- -v --uid opc --gid opc
+npx pm2 start /usr/local/bin/node-red -- -v --uid opc --gid opc
 sleep 5
-pm2 startup systemd
+npx pm2 startup systemd
 
 
 
