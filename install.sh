@@ -16,6 +16,8 @@ sudo npm install -g --unsafe-perm node-red
 
 echo "**adding firewall rules**"
 
+sudo systemctl restart dbus
+sleep 5 
 sudo firewall-cmd --zone=public --add-port=1880/tcp --permanent
 sudo firewall-cmd --zone=public --add-port=1883/tcp --permanent
 
@@ -46,7 +48,8 @@ sleep 15
 
 #start nodered
 
-npx pm2 start /usr/local/bin/node-red -- -v
+npx pm2 start /usr/local/bin/node-red -- -v --uid opc --gid opc
+sleep 5
 npx pm2 startup systemd
 
 
