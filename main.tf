@@ -49,8 +49,9 @@ resource "oci_core_instance" "instance" {
   }
 
   provisioner "remote-exec" {
+    on_failure = continue
     inline = [
-      "wget -qO - 'https://raw.githubusercontent.com/badr42/nodered_MQTT_db23c/main/database.sh' | sudo bash -s ${var.DB_PASS}",
+      "wget -qO - 'https://raw.githubusercontent.com/badr42/nodered_MQTT_db23c/main/database.sh' | sudo bash ",
       "wget -qO - 'https://raw.githubusercontent.com/badr42/nodered_MQTT_db23c/main/config_db.sh' | bash ",
       "wget -qO - 'https://raw.githubusercontent.com/badr42/nodered_MQTT_db23c/main/install.sh' | bash ",  
     ]
